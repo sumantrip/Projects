@@ -1,0 +1,10 @@
+if [ "$#" -ne 1 ]; then
+    echo "Usage: autograder <email>"
+    exit 1
+fi
+EMAIL=$1
+echo $EMAIL | java editorTester.AGInitialCursorTest gradescope
+echo $EMAIL | java editorTester.AGSimpleTextTest gradescope
+echo $EMAIL | java editorTester.AGBackspaceTest gradescope
+echo $EMAIL | java editorTester.AGArrowKeyTest gradescope
+echo $EMAIL | java editorTester.AGNewlineTest gradescope

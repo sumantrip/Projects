@@ -1,0 +1,69 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by Fernflower decompiler)
+//
+
+public class ArrayDequeTest {
+    public ArrayDequeTest() {
+    }
+
+    public static boolean checkEmpty(boolean x, boolean var1) {
+        if(x != var1) {
+            System.out.println("isEmpty() returned " + var1 + ", but expected: " + x);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static boolean checkSize(int x, int var1) {
+        if(x != var1) {
+            System.out.println("size() returned " + var1 + ", but expected: " + x);
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public static void printTestStatus(boolean x) {
+        if(x) {
+            System.out.println("Test passed!\n");
+        } else {
+            System.out.println("Test failed!\n");
+        }
+
+    }
+
+    public static void addIsEmptySizeTest() {
+        System.out.println("Running add/isEmpty/Size test.");
+        ArrayDeque<Integer> x = new ArrayDeque<Integer>();
+        boolean var1 = checkEmpty(true, x.isEmpty());
+        x.addFirst(5);
+        var1 = checkSize(1, x.size()) && var1;
+        var1 = checkEmpty(false, x.isEmpty()) && var1;
+        x.addLast(10);
+        var1 = checkSize(2, x.size()) && var1;
+        x.addLast(15);
+        var1 = checkSize(3, x.size()) && var1;
+        System.out.println("Printing out deque: ");
+        x.printDeque();
+        printTestStatus(var1);
+    }
+
+    public static void addRemoveTest() {
+        System.out.println("Running add/remove test.");
+        ArrayDeque<Integer> x = new ArrayDeque<Integer>();
+        boolean var1 = checkEmpty(true, x.isEmpty());
+        x.addFirst(10);
+        var1 = checkEmpty(false, x.isEmpty()) && var1;
+        x.removeFirst();
+        var1 = checkEmpty(true, x.isEmpty()) && var1;
+        printTestStatus(var1);
+    }
+
+    public static void main(String[] x) {
+        System.out.println("Running tests.\n");
+        addIsEmptySizeTest();
+        addRemoveTest();
+    }
+}
